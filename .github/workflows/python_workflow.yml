@@ -22,8 +22,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: "Running the Python app here in this step"
-        run: python app.py
-
+        run: |
+          python app.py &
+          sleep 5
+        
       - name: "Verifying if the app is running fine"
         run: |
           curl http://127.0.0.1:5000
